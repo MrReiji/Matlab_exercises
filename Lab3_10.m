@@ -1,14 +1,20 @@
-clear; close all;
+% matrix_obiekt3D.m
+clear all; close all;
 
-referencePoint1 = [1;
-                   1;
-                   1];
+load('dane_topo.dat');
+size(babia_gora)
+figure; grid; plot3( dane_topo(:,1), dane_topo(:,2), dane_topo(:,3), 'b.' ); pause
 
-plotOrigin([-5,5],[-5,5],[-5,5], [0,0,0]);
-axis off;
-plot3(referencePoint1(1),referencePoint1(2),referencePoint1(3), 'ok');
+x = dane_topo(:,1); y = dane_topo(:,2); z = dane_topo(:,3);
+vmin = min( min(x), min(y) ); % min
+vmax = max( max(x), max(y) ); % max
+[xi,yi] = meshgrid( vmin : (vmax-vmin)/200 : vmax ); % dopasowanie zakresu
+zi = griddata( x, y, z, xi, yi,  'linear' ); % interp: nearest, linear, spline, cubic
+figure; surf( xi,yi,zi ); pause % rysunek
 
-angle = 90 % in degrees
-
-newPoint1 = rotateMatrix('z', angle) * referencePoint1;
-plot3(newPoint1(1),newPoint1(2),newPoint1(3), 'ok');
+ax = -45/180*pi; ay = -90/180*pi; az = 135/180*pi;
+Rx = [ 1, 0, 0; 0, cos(ax), -sin(ax); 0, sin(ax), cos(ax) ]; % macierz rotacji wzg. x
+Ry = [ cos(ay), 0, -sin(ay); 0, 1, 0; sin(ay), 0, cos(ay) ]; % macierz rotacji wzg. y
+Rz = [ cos(az), -sin(az), 0; sin(az), cos(az), 0; 0, 0, 1 ]; % macierz rotacji wzg. z
+XR = Rz * Ry * Rx * dane_topo', % 3 rotacje po kolei
+figure; grid; plot3( XR(1,:), XR(2,:), XR(3,:), 'b.' ); % wynik obrotu

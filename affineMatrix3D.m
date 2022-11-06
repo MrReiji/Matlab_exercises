@@ -1,4 +1,4 @@
-function affine_matrix = affineMatrix(a, b, c, d, e, f, g, h, i, j, k, l)
+function affine_matrix = affineMatrix3D(a, b, c, d, e, f, g, h, i, j, k, l)
 
     affine_matrix = [a  b   c   d
                      e  f   g   h
