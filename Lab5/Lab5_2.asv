@@ -14,7 +14,7 @@ id = 0 : 0.01 : N; % zmienna "i" dokladna
 xd = cos( 2*pi/N * id ); % dokladne wartosci x
 yd = sin( 2*pi/N * id ); % dokladne wartosci y
 figure; axis equal; plot( xi,yi,'ko', xd,yd,'r--', polyval(ax,id), polyval(ay,id),'b.-');
-xlabel('x'); ylabel('y'); title('y=f(x)'); axis square; grid; xlim([-1,1]); ylim([-1,1]);
+xlabel('x'); ylabel('y'); title('y=f(x)'); axis square; grid; xlim([-1,1]); ylim([-1,1]); pause
 
 % Dla n =4 - duzy blad
 % n = 5 - duzy
