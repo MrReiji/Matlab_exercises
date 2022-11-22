@@ -2,7 +2,7 @@
 % x(i) = ax0 +ax1*i^1 + ax2*i^2 + ... + axN*i^N
 % y(i) = ay0 +ay1*i^1 + ay2*i^2 + ... + ayN*i^N
 clear all; close all;
-N = 10; % stopien wielomianow
+N = 11; % stopien wielomianow
 i = (0 : N)'; % zmienna "i" wielomianu w wezlach ("rzadka")
 xi = cos( 2*pi/N * i ); % wartosci funkcji x=kosinus w wezlach
 yi = sin( 2*pi/N * i ); % wartosci funkcji y=sinus w wezlach
@@ -20,3 +20,8 @@ xlabel('x'); ylabel('y'); title('y=f(x)'); axis square; grid; xlim([-1,1]); ylim
 % n = 5 - duzy
 %n = 6 - nadal widac czerwony okrag
 %n = 7 - ok
+%n = 10 -ok, tez sie nie domyka
+%n = 11 - ostatnie bez ostrzezenia, nie domyka sie, niebieska linia blisko
+%czerwonej
+%n = 12 - ostrzezenia ze skalowaniem macierzy niebieski okrag nie jest
+%zamkniety
