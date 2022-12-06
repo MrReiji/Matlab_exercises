@@ -1,0 +1,1 @@
+h = pi/8;x0 = 0;y0 = sin(x0);% x0 = 5;% y0 = 10;x1 = pi/8;y1 = sin(x1);% x1 = 7;% y1 = 14;x2 = pi/4;y2 = sin(x2);% x2 = 9;% y2 = 18;a1 = 1/3; % calkab1 = 4/3;c1 = 1/3;a2 = 0; %pochodnab2 = -1;c2 = 1;A1 = h*A_calc(y0,y1,y2,a1,b1,c1),A2 = (1/h)*A_calc(y0,y1,y2,a2,b2,c2),function A = A_calc(y0,y1,y2,a,b,c)    A = a*y0+b*y1+c*y2; end

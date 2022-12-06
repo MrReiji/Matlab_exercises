@@ -4,10 +4,10 @@ clear all; close all;
 
 % W wyniku pomiaru otrzymano nastepujace liczby ( x = numer pomiaru, y = wartosc )
 %x = [ 1       2      3      4      5      6      7      8      9      10    ];
-x = [ 1       2      3      4   ];
+x = [ 1       2      3      4      5      6      7      8    ];
 
 %y = [ 0.912   0.945  0.978  0.997  1.013  1.035  1.057  1.062  1.082  1.097 ];
-y = [ 0.912   1.100  0.978  0.997  ];
+y = [ 0.912   0.945  0.978  0.997  1.013  1.035  1.057  2.062  ];
 
 figure; plot( x, y, 'b*' ); title('y=f(x)'); grid; pause
 
@@ -28,5 +28,5 @@ else                   % W TYM PRZYPADKU - na podstawie wyprowadzonych wzorow
 end
 figure; plot( x, y, 'b*', x, a*x+b, 'k-' ); title('y=f(x)'); grid; pause
 % Takze wielomiany wyzszych rzedow 
-p = polyfit( x, y, 3 ),        % a=p(1), b=p(2)
+p = polyfit( x, y, 2 ),        % a=p(1), b=p(2)
 figure; plot( x, y, 'b*', x, polyval(p,x), 'r-' ); title('y=f(x)'); grid; pause
